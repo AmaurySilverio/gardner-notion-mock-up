@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>House Gardner Notion Mock-Up</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/d74d0e70eb.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="page-header text-center img">
+      <h1><span></span> </h1>
+    </div>
+
+    <div class="row">
+
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-4">
+        <div class="well">
+          <h3><span class="fa fa-user"></span> Local</h3>
+
+          <% if (user.local.email) { %>
+            <p>
+              <strong>email</strong>: <%= user.local.email %><br>
+            </p>
+            <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+            <a href="/unlink/local" class="btn btn-default">Unlink</a>
+            <% } else { %>
+              <a href="/connect/local" class="btn btn-default">Connect Local</a>
+              <% } %>
+
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <h2>Add a message:</h2>
+        <% if (user.local.email) { %>
+          <form action="/notionMockUp" method="POST">
+            <input type="text" placeholder="enter name here" name="name">
+            <label for="pet-select">Choose One:</label>
+            <select name="questions" id="questions-select" required>
+              <option value="">--Please choose an option--</option>
+              <option value="mood">How You're Feeling</option>
+              <option value="productivity">What You Did</option>
+              <option value="toDo">What You Have To Get Done</option>
+            </select>
+            <textarea type="text" class="input" placeholder="I have to create 1 more CRUD app using express"
+              name="entry"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+          <% } %>
+
+      </div>
+    </div>
+    <section class="messageContainer">
+      <div class="container">
+        <h2>🌟Week 11🌟</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="my-sectionGreen border">
+
+
+              <h3>How You're Feeling:</h3>
+              <ul class="entries list-group">
+                <% for(var i=0; i<entries.length; i++) {%>
+                  <% if(entries[i].prompt=="mood" ){ %>
+                    <li class="message list-group-item">
+                      <span class="colorBlue">
+                        <%= entries[i].name %>
+                      </span>
+                      <span>
+                        <%= entries[i].mood %>
+                      </span>
+                      <span>
+                        <%= entries[i].date %>
+                      </span>
+                      <span>
+                        <%= entries[i].thumbUp %>
+                      </span>
+                      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+
+                    </li>
+                    <%}%>
+                      <%}%>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="col-md-4">
+            <div class="my-sectionBlue border">
+              <h3>What You Did:</h3>
+              <ul class="entries list-group">
+                <% for(var i=0; i<entries.length; i++) {%>
+                  <% if(entries[i].prompt=="productivity" ){%>
+                    <li class="message list-group-item">
+                      <span class="colorYellow">
+                        <%= entries[i].name %>
+                      </span>
+                      <span>
+                        <%= entries[i].productivity %>
+                      </span>
+                      <span>
+                        <%= entries[i].date %>
+                      </span>
+                      <span>
+                        <%= entries[i].thumbUp %>
+                      </span>
+                      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </li>
+                    <%}%>
+                      <% } %>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="my-sectionOrange border">
+              <h3>What You You Have To Get Done:</h3>
+              <ul class="entries list-group">
+                <% for(var i=0; i<entries.length; i++) {%>
+                  <% if(entries[i].prompt=="toDo" ){%>
+                    <li class="message list-group-item">
+                      <span class="colorRed">
+                        <%= entries[i].name %>
+                      </span>
+                      <span>
+                        <%= entries[i].toDo %>
+                      </span>
+                      <span>
+                        <%= entries[i].date %>
+                      </span>
+                      <span>
+                        <%= entries[i].thumbUp %>
+                      </span>
+                      <span><i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+                      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    </li>
+                    <% } %>
+                      <%}%>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>💻 House Rules:</h2>
+          <ol>
+            <li>Be United- open huddle during class time, structure weekly projects.</li>
+            <li>Honesty- Be honest with each other: communicate. Don't fake the funk.</li>
+            <li>Accountability- Your teammates are trusting you.</li>
+            <li>Respect each other, hear them out.</li>
+            <li>ALWAYS SUBMIT SOMETHING-Even if its unfinished.</li>
+            <li>EXPECTATIONS- Roles: stick to them. Communicate!</li>
+            <li>Make sure to have fun!</li>
+            <li>We are a community- feel comfortable to open up to your teammates, you're in a safe space.</li>
+            <li>Malik is down 4 whatever :)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+
+</html>

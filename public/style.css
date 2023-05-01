@@ -1,0 +1,47 @@
+body{
+  padding-top:40px;
+  word-wrap:break-word;
+}
+img{
+  height: 200px;
+}
+.img{
+  background-image: url('./img/GG.png');
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+}
+.my-sectionGreen{
+  background: lightgreen;
+}
+.my-sectionBlue{
+  background: lightskyblue;
+}
+.my-sectionOrange{
+  background: lightsalmon;
+}
+.entries{
+  padding: 5px;
+}
+.message{
+  margin-bottom: 3px;
+}
+.messageContainer h3{
+  text-align: center;
+  padding-top: 13px;
+}
+.messageContainer h2{
+background: lightgray;
+text-align: center;
+padding-top: 13px;
+padding-bottom: 13px;
+}
+.colorBlue{
+background: rgb(90, 195, 252);
+}
+.colorYellow{
+  background: rgb(255, 255, 115);
+}
+.colorRed{
+  background: rgba(252, 83, 83, 0.878);
+}
